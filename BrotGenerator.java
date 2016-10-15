@@ -28,7 +28,7 @@ public class BrotGenerator implements Runnable {
     @Override
     public void run() {
         pointsDone = 0;
-        int pwidth = (Integer)gui.brot.size;
+        int pwidth = gui.brot.size;
 
 
         gui.brot.remakeImage();
@@ -53,7 +53,7 @@ public class BrotGenerator implements Runnable {
             }).start();
         }
         double escape1 =(Double)gui.escaperadiusspinner5.getValue();
-        int basenumerinumber =(Integer)gui.pspinner2.getValue();
+
         int baserecinumber = (Integer)gui.qspinner3.getValue();
         int branchIteration = (Integer)gui.iterationspinner4.getValue();
         boolean abort = false;
@@ -64,55 +64,6 @@ public class BrotGenerator implements Runnable {
                 abort = true;
             }
             if(finished==threads) {
-               /* if (typeOfRender == 2) {
-                    finalWeight = 0;
-                    HashMap<Integer, Integer> iteraToCount = new HashMap<Integer, Integer>();
-                    for (int x = 0; x < pwidth; x++) {
-                        for (int y = 0; y < pwidth; y++) {
-                            if(image[x][y]!=-1) {
-                                if (iteraToCount.containsKey(image[x][y])) {
-                                    iteraToCount.put(image[x][y], iteraToCount.get(image[x][y]) + 1);
-                                } else {
-                                    iteraToCount.put(image[x][y], 1);
-                                }
-                            }
-                        }
-                    }
-                    ArrayList<Map.Entry<Integer, Integer>> maps = new ArrayList<Map.Entry<Integer, Integer>>();
-                    maps.addAll(iteraToCount.entrySet());
-                    Collections.sort(maps, new Comparator<Map.Entry<Integer, Integer>>() {
-                        @Override
-                        public int compare(Map.Entry<Integer, Integer> o1, Map.Entry<Integer, Integer> o2) {
-                            if(o1.getKey()>o2.getKey())
-                            {
-                                return 1;
-                            }else
-                            if(o1.getKey() < o2.getKey()) {
-                                return -1;
-                            }else {
-                                return 0;
-                            }
-                        }
-                    });
-                    HashMap<Integer, Integer> rank = new HashMap<Integer, Integer>();
-                    for(int i =0 ;i<maps.size();i++)
-                        {
-                            rank.put(maps.get(i).getKey(),i);
-                           // System.out.println(maps.get(i).getKey()+"  rank="+i);
-                        }
-                    for (int x = 0; x < pwidth; x++) {
-                        for (int y = 0; y < pwidth; y++) {
-
-                            if(image[x][y]!=-1) {
-                                image[x][y] = rank.get(image[x][y]);
-                                if (image[x][y] > finalWeight) {
-                                    finalWeight = image[x][y];
-                                }
-                            }
-                        }
-                    }
-
-                }*/
                 abort = true;
             }
             float biggestfinalWeight = (float) Math.pow(baserecinumber, branchIteration-1);
@@ -128,6 +79,8 @@ public class BrotGenerator implements Runnable {
 
                     for (int y = 0; y < pwidth; y++) {
 
+
+                        //All the different colour options for each renderer
                         if(typeOfRender==0) {
                             if (image[x][y] == 0) {
                                 g.setColor(Color.BLACK);
@@ -166,7 +119,7 @@ public class BrotGenerator implements Runnable {
                             }
                         }else
                         if(typeOfRender==2) {
-                            //System.out.println(image[x][y]);
+
                             if (image[x][y] == -1) {
                                 g.setColor(Color.BLACK);
                             } else {
@@ -233,8 +186,6 @@ public class BrotGenerator implements Runnable {
                             if((image[x][y]-image[x][y+1])!=0) {
                                 value++;
                             }
-                           // System.out.println( principalimage[x][y]);
-                            //value+= ((principalimage[x][y]==0)?(0):(4));
 
                             if (principalimage[x][y] !=0) {
 
@@ -273,20 +224,8 @@ public class BrotGenerator implements Runnable {
 
                     }
                 }
-            /*
-int i =0;
-            for (int x = 0; x < pwidth/5; x++) {
 
-                for (int y = 0; y < pwidth/5; y++) {
-                    i++;
-                    g.setColor(new Color(
-                            Math.min(1, Math.max(0, Math.abs(2*((((i+11)%59)+1f) / 60f)-1f)   )),
-                            Math.min(1, Math.max(0, Math.abs(2 * ((((i+44) % 179) + 1f) / 180f) - 1f))),
-                            Math.min(1, Math.max(0, Math.abs(2*(((i % 97) + 1f) / 98f)-1f)   ))));
-                    g.drawRect(x*5, y*5, 5, 5);
-                }
-            }*/
-                    g.setColor(Color.RED);
+                g.setColor(Color.RED);
                 int size = (int) (((escape1 - gui.xoffset) * pw2) / gui.range) - (int) (((-gui.xoffset) * pw2) / gui.range);
                 g.drawOval((int) ((((-gui.xoffset) * pw2) / gui.range) + pw2 - size), (int)(pw2 - (int) (((-gui.yoffset) * pw2) / gui.range) - size), size * 2, size * 2);
                 gui.progressBar1.setValue(pwidth);
@@ -306,7 +245,7 @@ int i =0;
     private void generateBrotFractal(float start, float end,boolean principal) {
 
         activethreads = 0;
-        int pwidth = (Integer)gui.brot.size;
+        int pwidth = gui.brot.size;
 
 
         //gui.brot.remakeImage(pwidth);
@@ -408,7 +347,7 @@ int i =0;
                 return (currentDepth);
             }else
             {
-                return (int)((baserecinumber*currentDepth));
+                return (baserecinumber*currentDepth);
             }
         }else
         if(currentDepth==maxDepth)

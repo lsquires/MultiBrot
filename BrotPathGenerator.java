@@ -29,14 +29,11 @@ public class BrotPathGenerator implements Runnable  {
 
     private void generateBrotFractalPath() {
 
-        int pwidth = (Integer)gui.brot.size;
+        int pwidth = gui.brot.size;
         gui.brot.remakePathImage();
-        boolean abort = false;
-        int[][] image = new int[pwidth][pwidth];
-        float biggestfinalWeight = 0;
-        double range = (Double)gui.renderradiusspinner1.getValue();
+
+
         Graphics g = gui.brot.pathimage.getGraphics();
-        int typeOfFractal = 0; //FIX
 
         double escape1 =(Double)gui.escaperadiusspinner5.getValue();
         double escape = escape1*escape1;
@@ -48,13 +45,7 @@ public class BrotPathGenerator implements Runnable  {
 
             if(gui.currentPathThread.getId() == thisID) {
 
-
-                if (true || typeOfFractal == 0) //FIX
-                {
                     evaluatePointPath(escape, g, 0, 0, 0, branchIteration, 0, xstart, ystart, basenumerinumber, baserecinumber, 0, 0);
-                } else {
-                    //finalWeight = evaluatePointj(x3, y3, 0, branchIteration, 0, juliac, juliaci);
-                }
             }else
             {
                 run = false;

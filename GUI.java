@@ -64,8 +64,6 @@ public class GUI {
 
     public int typeFractal;
     public BrotPathGenerator currentPathThreadGen;
-    //public ComboBoxModel branchModel;
-
 
     public GUI( ) {
 
@@ -223,8 +221,8 @@ public class GUI {
             public void mouseMoved(MouseEvent e) {
 
 
-                mousescaledx = (((double)((e.getX())-brot.halfsize)*range)/brot.halfsize)+xoffset;
-                mousescaledy = ((((double)(brot.halfsize-e.getY()))*range)/brot.halfsize)+yoffset;
+                mousescaledx = ((((e.getX())-brot.halfsize) *range)/brot.halfsize)+xoffset;
+                mousescaledy = (((brot.halfsize-e.getY()) *range)/brot.halfsize)+yoffset;
                 xlabel.setText("X: "+mousescaledx);
                 ylabel.setText("Y: "+mousescaledy);
                 xlabel.updateUI();
@@ -354,7 +352,7 @@ public class GUI {
             }
             String combination = "";
             combination = printPermutations(n, Nr, 0, combination);
-            //System.out.println(combination);
+
             String[] combinations = combination.split("p");
             for (int i = 0; i < number; i++) {
                 customBranchcomboBox1.addItem(">" + combinations[i]);
@@ -363,7 +361,7 @@ public class GUI {
     }
 
     public  String printPermutations(int[] n, int[] Nr, int idx,String current) {
-        if (idx == n.length) {  //stop condition for the recursion [base clause]
+        if (idx == n.length) {
             //System.out.println(Arrays.toString(n));
             String a = Arrays.toString(n);
            return a.substring(1,a.length()-1)+"p";
@@ -371,7 +369,7 @@ public class GUI {
         String ne = "";
         for (int i = 1; i <= Nr[idx]; i++) {
             n[idx] = i;
-            ne=ne+printPermutations(n, Nr, idx+1,current); //recursive invokation, for next elements
+            ne=ne+printPermutations(n, Nr, idx+1,current);
         }
         return current+ne;
     }
@@ -379,10 +377,10 @@ public class GUI {
         private void dragAreaCalc() {
 
 
-        double x = (((double)((mousedragx)-brot.halfsize)*range)/brot.halfsize)+xoffset;
-        double y =(((double) ((brot.halfsize-mousedragy)) * range) / brot.halfsize) + yoffset;
-        double x2 = (((double)((firstmousedragx)-brot.halfsize)*range)/brot.halfsize)+xoffset;
-        double y2 =(((double) ((brot.halfsize-firstmousedragy)) * range) / brot.halfsize) + yoffset;
+        double x = ((((mousedragx)-brot.halfsize) *range)/brot.halfsize)+xoffset;
+        double y =(((brot.halfsize-mousedragy) * range) / brot.halfsize) + yoffset;
+        double x2 = ((((firstmousedragx)-brot.halfsize) *range)/brot.halfsize)+xoffset;
+        double y2 =(((brot.halfsize-firstmousedragy) * range) / brot.halfsize) + yoffset;
 
             double size = (Math.abs(x2-x)>Math.abs(y2-y))?(Math.abs(x2-x)/2f):(Math.abs(y2-y)/2f);
 

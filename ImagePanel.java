@@ -39,13 +39,12 @@ public class ImagePanel extends JPanel{
             if(gui.renderRect) {
                 g.setColor(Color.cyan);
 
-                //g.drawOval(gui.firstmousedragx, gui.firstmousedragy, 2, 2);]
+
 
                 g.drawLine(gui.firstmousedragx, gui.firstmousedragy, gui.firstmousedragx, gui.mousedragy );
                 g.drawLine(gui.firstmousedragx,gui.firstmousedragy,gui.mousedragx,gui.firstmousedragy);
                 g.drawLine(gui.mousedragx,gui.firstmousedragy,gui.mousedragx,gui.mousedragy);
                 g.drawLine(gui.firstmousedragx,gui.mousedragy,gui.mousedragx,gui.mousedragy);
-                //g.drawRect(gui.firstmousedragx,gui.firstmousedragy,gui.mousedragx-gui.firstmousedragx,gui.mousedragy-gui.firstmousedragy);
             }
         }
     }
