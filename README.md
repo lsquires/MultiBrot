@@ -6,6 +6,7 @@ Release and overview here : https://mynameislaurence.com/2015/03/08/fractal/
 
 Full explanation of code and methods used is here: https://mynameislaurence.com/2015/03/03/rendering-complete-multibranch-multibrot-sets/
 
+Please read the above links as they have the correct pictures and formatting.
 
 Features:
   Full multibrot drawing including all possible branches (How does it calculate all the branches?)
