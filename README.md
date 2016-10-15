@@ -20,12 +20,11 @@ Features:
 
 
 Settings Explanation:
-  P = the numerator of the exponent (must be positive)
+
+P = the numerator of the exponent (must be positive)
 	
-  Q = the denominator of the exponent (must be positive)
-  Try to keep p/q in its simplest form and also the computational cost grows exponentially with q so the lower the better, e.g. if p/q is 5/2 then it takes ~2.5s for 8 iterations but takes ~15s for 12 iterations and ~200s for 16 iterations
-  
-	Iterations = the number of iterations to calculate each point to, for q=1 this can be around 100-200 for accurate drawings however when the fractal is multi-valued (q>1) then iterations needs to much lower (2-10) unless you are rendering the escape time and not branch convergence.
+  Q = the denominator of the exponent (must be positive) Try to keep p/q in its simplest form and also the computational cost grows exponentially with q so the lower the better, e.g. if p/q is 5/2 then it takes ~2.5s for 8 iterations but takes ~15s for 12 iterations and ~200s for 16 iterations
+  Iterations = the number of iterations to calculate each point to, for q=1 this can be around 100-200 for accurate drawings however when the fractal is multi-valued (q>1) then iterations needs to much lower (2-10) unless you are rendering the escape time and not branch convergence.
   
 	Escape radius = the radius of the escape boundary (red circle), if a point iterates outside this circle then it is considered unbounded and not part of the set, 4 is a good value for most fractals apart from when the exponent approaches 1 (e.g. p/q = 5/4)
   
